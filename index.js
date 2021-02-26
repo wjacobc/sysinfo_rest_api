@@ -14,6 +14,19 @@ function log_request(ip, cmd) {
     log_file.write(today + " " + ip + " " + cmd + "\n");
 }
 
+// check if new packages available
+app.get("/check_updates", (req, res) => {
+    const apt_output =
+        execSync("apt list --upgradable 2>/dev/null| wc -l | tail -n 1",
+        {encoding: "utf-8"});
+
+    // don't count the line saying "Listing... Done"
+    const num_updates = parseInt(apt_output) - 1;
+    res.status(200).send(num_updates > 0);
+    log_request(req.ip, "check_updates");
+    });
+
+
 // disk space endpoint
 app.get("/disk_space", (req, res) => {
 
