@@ -1,8 +1,0 @@
-# sysinfo_rest_api
-A tool for me to practice REST API design with Node.JS and Express, as well as setting up a means for me to access information about my remote servers quickly.
-
-Currently:
-
-- Runs on Node.JS
-- Supports a disk space command at endpoint /disk_space
-- Logs requests with current time in ISO format, IP address of the requesting machine, and the endpoint accessed
