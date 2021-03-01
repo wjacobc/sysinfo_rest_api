@@ -58,3 +58,15 @@ app.get("/mem_percent", (req, res) => {
     log_request(req.ip, "mem_percent");
     });
 
+// get the cpu usage percentage
+app.get("/cpu_percent", (req, res) => {
+
+    const cpu_percent = execSync(
+        "top -b -n 1 | tail -n +8 | awk '!/top$/ {sum += $9;} END{print sum \"%\"}'",
+        { encoding: "utf-8" }
+    );
+
+    res.status(STATUS_OK).send(cpu_percent);
+    log_request(req.ip, "cpu_percent");
+    });
+
