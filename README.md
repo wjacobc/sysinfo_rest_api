@@ -10,7 +10,7 @@ Commands:
 
 - Get available disk space at endpoint `/disk_space`
 - Get cpu usage at endpoint `/cpu_percent`
-- Get ram usage at endpoint `/ram_percent`
+- Get ram usage at endpoint `/mem_percent`
 - Get whether updates are available at endpoint `/check_updates`
 
 Note: the `check_updates` endpoint does not actually sync your remote repositories - every endpoint has no side effects, so no query will actually modify your system. For `check_updates` to be useful, some form of automated repository synchronization is required, such as a cronjob.
